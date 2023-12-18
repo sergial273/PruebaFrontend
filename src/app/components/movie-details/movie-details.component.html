@@ -1,0 +1,20 @@
+<div id="ht-tm-jumbotron">
+    <div class="jumbotron py-0 bg-light text-dark mb-0 radius-0 ht-tm-jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 ml-auto jumbo-vertical-center">
+            <img src="{{ movie.poster_path }}" alt="{{ movie.poster_path }}" />
+            <div class="ht-tm-header">
+              <h1 class="display-3 mb-2 display-fix">{{ movie.title }}</h1>
+              <p class="text-spacey">Original Title: <span class="text-merriweather">{{ movie.original_title }}</span></p>
+              <p class="text-spacey">Release date: <span class="text-merriweather">{{ movie.release_date }}</span></p>
+              <p class="text-spacey">Overview: <span class="text-merriweather">{{ movie.overview }}</span></p>
+              <p class="text-spacey">Genres: <span class="text-merriweather">{{genresAsString}}</span></p>
+              <p class="text-spacey">Vote count: <span class="text-merriweather">{{ movie.vote_count }}</span></p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>

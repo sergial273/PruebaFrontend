@@ -1,0 +1,30 @@
+<div class="container">
+    <header>
+      <h1 class="display-4">Welcome to  the searcher</h1>
+    </header>
+    <main>
+      <form>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search your book here"
+        />
+        <hr>
+      </form>
+    </main>
+  </div>
+  <div class="container-fluid">
+    <div class="row d-flex align-items-center">
+      @for (movie of movies; track $index) {
+        <div class="col-md-3 mb-3">
+          <div class="card shadow-lg p-1 mb-5 bg-white rounde mx-auto" style="width: 18rem">
+            <!--<img class="card-img-top" [src]="movie.posterpath" alt="Img error" />-->
+            <div class="card-body text-center">
+              <h5 class="card-title text-center mb-2">{{ movie.name }}</h5>
+              <button [routerLink]="['/serie-details', movie.id]" routerLinkActive="router-link-active" type="button" class="btn btn-primary">More</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
