@@ -1,18 +1,24 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,MatInputModule,MatSelectModule,MatFormFieldModule,MatCheckboxModule, FormsModule, ReactiveFormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
 export class SearchComponent implements OnInit {
   movies: any[] = [];
-
+  disableSelect = new FormControl(false);
+  
   constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
