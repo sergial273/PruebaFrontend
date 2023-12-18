@@ -3,14 +3,13 @@
       <h1 class="display-4">Welcome to  the searcher</h1>
     </header>
     <main>
-      <form>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search your book here"
-        />
-        <hr>
-      </form>
+      <h5>What do you want to search?</h5>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="movieOrSerie">
+        <option value="1">Movies</option>
+        <option value="2">Series</option>
+      </select>
+      <button type="button" class="btn btn-primary" (click)="getAllMovies()">Search</button>
+      <hr>
     </main>
   </div>
   <div class="container-fluid">
@@ -20,8 +19,14 @@
           <div class="card shadow-lg p-1 mb-5 bg-white rounde mx-auto" style="width: 18rem">
             <!--<img class="card-img-top" [src]="movie.posterpath" alt="Img error" />-->
             <div class="card-body text-center">
-              <h5 class="card-title text-center mb-2">{{ movie.name }}</h5>
-              <button [routerLink]="['/serie-details', movie.id]" routerLinkActive="router-link-active" type="button" class="btn btn-primary">More</button>
+              @if(movieOrSerie === '1'){
+                <h5 class="card-title text-center mb-2">{{ movie.title }}</h5>
+                <button [routerLink]="['/movie-details', movie.id]" routerLinkActive="router-link-active" type="button" class="btn btn-primary">More</button>
+              }
+              @else {
+                <h5 class="card-title text-center mb-2">{{ movie.name }}</h5>
+                <button [routerLink]="['/serie-details', movie.id]" routerLinkActive="router-link-active" type="button" class="btn btn-primary">More</button>
+              }
             </div>
           </div>
         </div>
